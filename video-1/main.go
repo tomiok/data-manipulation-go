@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	//vectors()
 	matrix()
 }
 
@@ -14,7 +15,7 @@ func vectors() {
 	//Create 2 vectors
 	vectorA := mat.NewVecDense(3, []float64{1, 2, 3})
 	vectorB := mat.NewVecDense(3, []float64{4, 5, 6})
-	// dot product
+	// dot product (1 * 4) + (2 * 5) + (3 * 6) = 32
 	dotProduct := mat.Dot(vectorA, vectorB)
 	fmt.Println("the dot product is", dotProduct)
 
@@ -41,4 +42,11 @@ func matrix() {
 	matBB.Add(matBB, matAA)
 	formatter_b := mat.Formatted(matBB, mat.Prefix(""))
 	fmt.Printf("%v\n", formatter_b)
+
+	sales := mat.NewDense(3, 3, []float64{1,3,9,2,4,6,1,5,0})
+	fmt.Println(sales.At(2,2))
+	fmt.Println(sales.IsEmpty())
+
+	formatterSales := mat.Formatted(sales, mat.Prefix(""))
+	fmt.Printf("%v\n",formatterSales)
 }
